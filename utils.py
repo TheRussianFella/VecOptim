@@ -2,15 +2,20 @@ import os
 from PIL import Image
 import numpy as np
 
-def load_dir(path, shape=[400, 400]):
+def load_dir(path, shape=[400, 400], one_channel=True):
     data = []
     for i in os.listdir(path):
         try:
             img = np.array(Image.open(os.path.join(path, i)).resize(shape))
+            
             if len(img.shape) != 3:
                 img = np.stack((img,)*3, -1)
             if img.shape[-1] != 3:
                 continue
+            
+            if one_channel:
+                img = img[:, :, 0]
+                
             data.append(img)
         except:
             1
