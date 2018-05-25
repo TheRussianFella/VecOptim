@@ -7,7 +7,7 @@ For example if you want to change a shape of a face in the photo without changin
 want to change a sentence from Lev Tolstoy's book to sound more like a liric from Nicki Minaj's song without changing the main
 message of it; or if you want to add resistance to a certain environment to a developing drug.
 
-In this project we try to formulate a universal framework that could solve this kinds of problems and test it on one of such tasks
+In this project we try to formulate a universal framework for this kind of problems and test it on one of such tasks.
 
 ## Task
 
@@ -20,12 +20,10 @@ We use notMNIST dataset for training.
 
 ## Method
 
-This method is quit simple.
-
 We train two neural nets: a VAE, that learns a hidden representation of letters and learns to reconstruct them, and a classifier,
 that will give us a probability distribution of what letter is on the picture. 
 
-Then we take a latent representation of an image we want to morph, and we use gradient descent to change it, so that it's 
+Then we take a latent representation of an image we want to morph, and use gradient descent to change it, so that it's 
 probability distribution leans more towards target letter.
 
 This way our letter will gain more and more characterictics of a target one as it gets closer to the place where it's
